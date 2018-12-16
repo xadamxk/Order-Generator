@@ -39,13 +39,13 @@
                 "length": 7.0,
                 "available": true,
                 "screenshot": "https://i.imgur.com/i7iPYRz.jpg",
-                "description":"The HF Man!"
+                "description":"Nothing is cooler than the HF Man himself!"
             },
             "Diamond Award": {
                 "length": 3.5,
-                "available": true,
+                "available": false,
                 "screenshot": "https://i.imgur.com/tjB7jum.jpg",
-                "description":"Shine bright!"
+                "description":"Why spend hundreds for the award when you can hold one for a fraction of the price?"
             }
         }
     }
