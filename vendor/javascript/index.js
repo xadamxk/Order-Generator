@@ -42,28 +42,30 @@ function getInfo() {
 
 function generateColorDropdown(colors) {
     var colorDropdown = $("<select>").addClass("form-control")
-    .append($("<option>").text("Select Color").val(0));
+        .append($("<option>").text("Select Color").val(0));
+    // Append available colors
     for (var color in colors) {
         var colorName = color;
         if (colors.hasOwnProperty(color)) {
             // Entire color object
             var color = colors[color];
-            //if (color.available) {
-            colorDropdown.append($("<option>")
+            var colorOption = $("<option>")
                 .text(colorName)
-                .val(color.price)
-                .attr("enabled",colorDisabledStatus(color.available))
-            );
-            //}
+                .val(color.price);
+            // If unavailable
+            if (!color.available) {
+                markColorOptionUnavailable(colorOption);
+            }
+            // Append color to colors list
+            colorDropdown.append(colorOption);
+
         }
     }
     return colorDropdown;
 }
 
-function colorDisabledStatus(isAvailable){
-    var result = "true";
-    if (isAvailable){
-        result = "false";
-    }
-    return result;
+
+function markColorOptionUnavailable(colorOption) {
+    colorOption.text(colorOption.text() + " (Out of Stock)");
+    colorOption.attr("disabled", "disabled");
 }
