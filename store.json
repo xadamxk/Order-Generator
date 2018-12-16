@@ -31,19 +31,21 @@
             },
             "Glow-in-Dark (Green)": {
                 "price": 0.75,
-                "available": true
+                "available": false
             }
         },
         "models": {
             "HF Man": {
                 "length": 7.0,
                 "available": true,
-                "screenshot": "http://placehold.it/700x400"
+                "screenshot": "http://placehold.it/700x400",
+                "description":"The HF Man!"
             },
             "Diamond Award": {
                 "length": 3.5,
                 "available": true,
-                "screenshot": "http://placehold.it/700x400"
+                "screenshot": "http://placehold.it/700x400",
+                "description":"Shine bright!"
             }
         }
     }
