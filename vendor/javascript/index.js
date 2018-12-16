@@ -14,28 +14,27 @@ function getInfo() {
             if (models.hasOwnProperty(model)) {
                 // Entire model object
                 var model = models[model];
-                if (model.available) {
-                    //console.log(model);
-                    $("#cellContainer")
-                        .append($("<div>").addClass("col-lg-4 col-sm-6 portfolio-item modelCell")
-                            .append($("<div>").addClass("card h-100")
-                                .append($("<a>")
-                                    .append($("<img>").attr("src", model.screenshot).addClass("card-img-top")
-                                    )
-                                )
-                                .append($("<div>").addClass("card-body")
-                                    .append($("<h4>").addClass("card-title")
-                                        .append($("<b>").text(modelName).addClass("modelName")
-                                        )
-                                    )
-                                    .append($("<p>").text(model.description))
-                                    .append(generateColorDropdown(colors))
-                                )
-                                .append($("<button>").attr({ "type": "button", "onclick": "orderModel($(this))" }).addClass("btn btn-primary orderButton").text("Order"))
+                //console.log(model);
+                var temp = $("<div>").addClass("col-lg-4 col-sm-6 portfolio-item modelCell").append($("<div>").addClass("card h-100")
+                    .append($("<a>")
+                        .append($("<img>").attr("src", model.screenshot).addClass("card-img-top")
+                        )
+                    )
+                    .append($("<div>").addClass("card-body")
+                        .append($("<h4>").addClass("card-title")
+                            .append($("<b>").text(modelName).addClass("modelName")
                             )
-                        );
-                    // End append
+                        )
+                        .append(generateColorDropdown(colors))
+                        .append($("<p>").text(model.description))
+                    )
+                    .append($("<button>").attr({ "type": "button", "onclick": "orderModel($(this))" }).addClass("btn btn-primary orderButton").text("Order"))
+                );
+                if (!model.available) {
+                    temp.find(".modelName").append("<br>").after($("<b>").text("Unavailable").css("color", "red").addClass("unavailable"));
                 }
+                $("#cellContainer").append(temp);
+                // End append
             }
         }
 
@@ -46,7 +45,11 @@ function orderModel(element) {
     var parentElement = element.parent();
     var modelName = parentElement.find(".modelName").text();
     var selectedColor = parentElement.find("option:selected").text();
-    if (selectedColor !== "Select Color") {
+
+    if (parentElement.find(".unavailable").length > 0) {
+        alert("We apologize, but this model (" + modelName + ") is not currently available.");
+    }
+    else if (selectedColor !== "Select Color") {
         // PM Subject
         const pmURL = "https://hackforums.net/private.php?action=send&uid=1306528";
         const newLine = "%0A";
@@ -56,10 +59,11 @@ function orderModel(element) {
         const msgConst = "&message=";
         var msgVarModel = encodeURI("Model: " + modelName) + newLine;
         var msgVarColor = encodeURI("Color: " + selectedColor) + newLine;
-        var msgVarInstructions = encodeURI("----- Requests/Comments Below -----") + newLine + newLine;
+        var msgVarInstructions = encodeURI("----- Requests/Comments Below -----") + newLine;
 
-        var final = pmURL + subjConst + subjVar + msgConst + msgVarModel + msgVarColor + msgVarInstructions;
-        console.log(final);
+        var finalURL = pmURL + subjConst + subjVar + msgConst + msgVarModel + msgVarColor + msgVarInstructions;
+        console.log(finalURL);
+        window.open(finalURL, "_blank");
     }
 }
 
