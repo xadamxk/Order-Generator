@@ -1,0 +1,49 @@
+{
+    "store": {
+        "colors": {
+            "Red": {
+                "price": 0.50,
+                "available": true
+            },
+            "Blue": {
+                "price": 0.50,
+                "available": true
+            },
+            "Black": {
+                "price": 0.50,
+                "available": true
+            },
+            "Gold": {
+                "price": 0.50,
+                "available": true
+            },
+            "Silver": {
+                "price": 0.50,
+                "available": true
+            },
+            "White": {
+                "price": 0.50,
+                "available": true
+            },
+            "Neon Green": {
+                "price": 0.50,
+                "available": true
+            },
+            "Glow-in-Dark (Green)": {
+                "price": 0.75,
+                "available": true
+            }
+        }
+    },
+    "models": {
+        "HF Man": {
+            "length": 7.0,
+            "available": true
+        },
+        "Diamond Award": {
+            "length": 3.5,
+            "available": true
+        }
+    }
+}
+}
