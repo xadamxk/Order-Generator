@@ -55,6 +55,7 @@ function orderModel(element) {
     var parentElement = element.parent();
     var modelName = parentElement.find(".modelName").text();
     var selectedColor = parentElement.find("option:selected").text();
+    var priceString =  parentElement.find(".modelPrice").text();
 
     if (parentElement.find(".unavailable").length > 0) {
         alert("We apologize, but this model (" + modelName + ") is not currently available.");
@@ -69,9 +70,10 @@ function orderModel(element) {
         const msgConst = "&message=";
         var msgVarModel = encodeURI("Model: " + modelName) + newLine;
         var msgVarColor = encodeURI("Color: " + selectedColor) + newLine;
+        var msgVarPrice = encodeURI("Price: " + priceString) + newLine;
         var msgVarInstructions = encodeURI("----- Requests/Comments Below -----") + newLine;
 
-        var finalURL = pmURL + subjConst + subjVar + msgConst + msgVarModel + msgVarColor + msgVarInstructions;
+        var finalURL = pmURL + subjConst + subjVar + msgConst + msgVarModel + msgVarColor + msgVarPrice + msgVarInstructions;
         console.log(finalURL);
         window.open(finalURL, "_blank");
     }
