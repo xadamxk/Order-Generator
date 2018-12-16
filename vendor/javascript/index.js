@@ -15,28 +15,38 @@ function getInfo() {
                 // Entire model object
                 var model = models[model];
                 //console.log(model);
-                var temp = $("<div>").addClass("col-lg-4 col-sm-6 portfolio-item modelCell").append($("<div>").addClass("card h-100")
-                    .append($("<a>")
-                        .append($("<img>").attr("src", model.screenshot).addClass("card-img-top")
-                        )
-                    )
-                    .append($("<div>").addClass("card-body")
-                        .append($("<h4>").addClass("card-title")
-                            .append($("<b>").text(modelName).addClass("modelName")
+                var temp = $("<div>").addClass("col-lg-4 col-sm-6 portfolio-item modelCell")
+                    .append($("<div>").addClass("card h-100").attr("length",model.length)
+                        .append($("<a>")
+                            .append($("<img>").attr("src", model.screenshot).addClass("card-img-top")
                             )
                         )
-                        .append(generateColorDropdown(colors))
-                        .append($("<p>").text(model.description))
-                    )
-                    .append($("<button>").attr({ "type": "button", "onclick": "orderModel($(this))" }).addClass("btn btn-primary orderButton").text("Order"))
-                );
+                        .append($("<div>").addClass("card-body")
+                            .append($("<h4>").addClass("card-title")
+                                .append($("<b>").text(modelName).addClass("modelName"))
+                                .append($("<b>").text("").addClass("modelPrice").css("color", "green"))
+                                .append($("<b>").text("").addClass("modelUnavailable"))
+
+                            )
+                            .append(generateColorDropdown(colors))
+                            .append($("<p>").text(model.description))
+                        )
+                        .append($("<button>").attr({ "type": "button", "onclick": "orderModel($(this))" }).addClass("btn btn-primary orderButton").text("Order"))
+                    );
                 if (!model.available) {
-                    temp.find(".modelName").append("<br>").after($("<b>").text("Unavailable").css("color", "red").addClass("unavailable"));
+                    temp.find(".modelUnavailable").append("<br>").after($("<b>").text("Unavailable").css("color", "red").addClass("unavailable"));
                 }
                 $("#cellContainer").append(temp);
                 // End append
             }
         }
+
+        $(".colorDropdown").change(function () {
+            var modelLength = $(this).parent().parent().attr("length");
+            var colorPricePerMeter = $(this).parent().find("option:selected").val();
+            var modelPrice = (modelLength*colorPricePerMeter).toFixed(2);
+            $(this).parent().find(".modelPrice").text("$" + modelPrice + " + shipping");
+        });
 
     });
 }
