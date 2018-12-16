@@ -1,5 +1,6 @@
 getInfo();
 
+
 function getInfo() {
     $.get('https://raw.githubusercontent.com/xadamxk/Order-Generator/master/store.json' + '?nc=' + Math.random(), function (responseText) {
         responseJson = JSON.parse(responseText);
@@ -14,7 +15,7 @@ function getInfo() {
                 // Entire model object
                 var model = models[model];
                 if (model.available) {
-                    console.log(model);
+                    //console.log(model);
                     $("#cellContainer")
                         .append($("<div>").addClass("col-lg-4 col-sm-6 portfolio-item modelCell")
                             .append($("<div>").addClass("card h-100")
@@ -24,12 +25,13 @@ function getInfo() {
                                 )
                                 .append($("<div>").addClass("card-body")
                                     .append($("<h4>").addClass("card-title")
-                                        .append($("<b>").text(modelName)
+                                        .append($("<b>").text(modelName).addClass("modelName")
                                         )
                                     )
                                     .append($("<p>").text(model.description))
                                     .append(generateColorDropdown(colors))
                                 )
+                                .append($("<button>").attr({ "type": "button", "onclick": "orderModel($(this))" }).addClass("btn btn-primary orderButton").text("Order"))
                             )
                         );
                     // End append
@@ -40,8 +42,29 @@ function getInfo() {
     });
 }
 
+function orderModel(element) {
+    var parentElement = element.parent();
+    var modelName = parentElement.find(".modelName").text();
+    var selectedColor = parentElement.find("option:selected").text();
+    if (selectedColor !== "Select Color") {
+        // PM Subject
+        const pmURL = "https://hackforums.net/private.php?action=send&uid=1306528";
+        const newLine = "%0A";
+        const subjConst = "&subject=";
+        var subjVar = encodeURI("3D Model Request");
+        // PM Message
+        const msgConst = "&message=";
+        var msgVarModel = encodeURI("Model: " + modelName) + newLine;
+        var msgVarColor = encodeURI("Color: " + selectedColor) + newLine;
+        var msgVarInstructions = encodeURI("----- Requests/Comments Below -----") + newLine + newLine;
+
+        var final = pmURL + subjConst + subjVar + msgConst + msgVarModel + msgVarColor + msgVarInstructions;
+        console.log(final);
+    }
+}
+
 function generateColorDropdown(colors) {
-    var colorDropdown = $("<select>").addClass("form-control")
+    var colorDropdown = $("<select>").addClass("form-control colorDropdown")
         .append($("<option>").text("Select Color").val(0));
     // Append available colors
     for (var color in colors) {
