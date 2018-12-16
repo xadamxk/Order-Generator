@@ -33,16 +33,16 @@
                 "price": 0.75,
                 "available": true
             }
-        }
-    },
-    "models": {
-        "HF Man": {
-            "length": 7.0,
-            "available": true
         },
-        "Diamond Award": {
-            "length": 3.5,
-            "available": true
+        "models": {
+            "HF Man": {
+                "length": 7.0,
+                "available": true
+            },
+            "Diamond Award": {
+                "length": 3.5,
+                "available": true
+            }
         }
     }
 }
