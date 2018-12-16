@@ -37,11 +37,13 @@
         "models": {
             "HF Man": {
                 "length": 7.0,
-                "available": true
+                "available": true,
+                "screenshot": "http://placehold.it/700x400"
             },
             "Diamond Award": {
                 "length": 3.5,
-                "available": true
+                "available": true,
+                "screenshot": "http://placehold.it/700x400"
             }
         }
     }
