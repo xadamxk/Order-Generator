@@ -38,13 +38,13 @@
             "HF Man": {
                 "length": 7.0,
                 "available": true,
-                "screenshot": "http://placehold.it/700x400",
+                "screenshot": "https://i.imgur.com/i7iPYRz.jpg",
                 "description":"The HF Man!"
             },
             "Diamond Award": {
                 "length": 3.5,
                 "available": true,
-                "screenshot": "http://placehold.it/700x400",
+                "screenshot": "https://i.imgur.com/tjB7jum.jpg",
                 "description":"Shine bright!"
             }
         }
