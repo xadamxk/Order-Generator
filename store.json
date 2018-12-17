@@ -39,13 +39,19 @@
                 "length": 10.0,
                 "available": true,
                 "screenshot": "https://i.imgur.com/i7iPYRz.jpg",
-                "description":"Nothing is cooler than the HF Man himself!"
+                "description":"Nothing is cooler than the HF Man himself."
             },
             "Diamond Award": {
                 "length": 5.0,
                 "available": true,
-                "screenshot": "https://i.imgur.com/tjB7jum.jpg",
-                "description":"Why spend hundreds for the award when you can hold one for a fraction of the price?"
+                "screenshot": "https://github.com/xadamxk/3D-Models/blob/master/HF-Diamond/HF-Diamond3.jpeg?raw=true",
+                "description":"Why spend hundreds for the award, when you can hold one for a fraction of the price?"
+            },
+            "Bitcoin": {
+                "length": 8.50,
+                "available": true,
+                "screenshot": "https://github.com/xadamxk/3D-Models/blob/master/Bitcoin/Bitcoin_Front.JPG?raw=trueg",
+                "description":"Have you ever held an actual Bitcoin? Me either, but this is still pretty cool."
             }
         }
     }
