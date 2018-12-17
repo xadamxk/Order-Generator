@@ -38,7 +38,7 @@
             "HF Man": {
                 "length": 10.0,
                 "available": true,
-                "screenshot": "https://i.imgur.com/i7iPYRz.jpg",
+                "screenshot": "https://github.com/xadamxk/3D-Models/blob/master/HF-Man/HF-Man2.JPG?raw=true",
                 "description":"Nothing is cooler than the HF Man himself."
             },
             "Diamond Award": {
@@ -50,7 +50,7 @@
             "Bitcoin": {
                 "length": 8.50,
                 "available": true,
-                "screenshot": "https://github.com/xadamxk/3D-Models/blob/master/Bitcoin/Bitcoin_Front.JPG?raw=trueg",
+                "screenshot": "https://github.com/xadamxk/3D-Models/blob/master/Bitcoin/Bitcoin_Front.JPG?raw=true",
                 "description":"Have you ever held an actual Bitcoin? Me either, but this is still pretty cool."
             }
         }
