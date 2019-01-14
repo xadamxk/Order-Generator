@@ -1,3 +1,3 @@
 # Order-Generator
 
-[Click here to open the Order Generator](http://htmlpreview.github.io/?https://github.com/xadamxk/Order-Generator/blob/master/index.html)
+[Click here to open the Order Generator](https://xadamxk.github.io/Order-Generator/)
